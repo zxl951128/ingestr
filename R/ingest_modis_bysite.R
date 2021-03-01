@@ -22,13 +22,13 @@ ingest_modis_bysite <- function( df_siteinfo, settings ){
   df_siteinfo <- slice(df_siteinfo, 1)
 
   dirnam_daily_csv <- settings$data_path
-  dirnam_raw_csv <- paste0(settings$data_path, "/raw/")  #paste0( dirnam_nice_csv, "/raw/" )
+  dirnam_raw_csv <- settings$data_path
 
   if (!dir.exists(dirnam_daily_csv)) system( paste( "mkdir -p ", dirnam_daily_csv ) )
   if (!dir.exists(dirnam_raw_csv)) system( paste( "mkdir -p ", dirnam_raw_csv ) )
 
   filnam_daily_csv <- paste0( dirnam_daily_csv, "/", settings$productnam, "_daily_", sitename, ".csv" )
-  filnam_raw_csv <- paste0( dirnam_raw_csv, "/", settings$productnam, "_", sitename, ".csv" )
+  filnam_raw_csv <- paste0( dirnam_raw_csv, "/", settings$productnam, "_raw_", sitename, ".csv" )
 
   do_continue <- TRUE
 
